@@ -14,7 +14,19 @@ limits:
   max_depth: 25
   max_height: 50
   max_aliases: 3
+## Authentication Module
+authentication:
+  router:
+    jwt:
+      header_name: Authorization
+      header_value_prefix: Bearer
+      jwks:
+        - url: https://www.googleapis.com/service_accounts/v1/jwk/securetoken@system.gserviceaccount.com
 
+authorization:
+  require_authentication: false
+  preview_directives:
+    enabled: true
 cors:
   origins:
     - https://studio.apollographql.com
